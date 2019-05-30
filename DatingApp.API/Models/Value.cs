@@ -1,8 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+
 namespace DatingApp.API.Models
 {
-    public class Value
+    public partial class Value
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

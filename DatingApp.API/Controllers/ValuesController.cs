@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DatingApp.API.Data;
 using Microsoft.AspNetCore.Mvc;
+using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
@@ -16,22 +16,22 @@ namespace DatingApp.API.Controllers
         public ValuesController(DataContext context)
         {
             _context = context;
-
         }
+
+
         // GET api/values
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-             var values = await _context.Values.ToListAsync();
+             var values = await _context.Value.ToListAsync();
             return Ok(values);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetValue(int id)
+        public async Task<IActionResult> GeValue(int id)
         {
-            var value = await _context.Values.FirstOrDefaultAsync(x=>x.ID == id);
-            return Ok(value);
+            return Ok(await _context.Value.FirstOrDefaultAsync(x => x.Id == id));
         }
 
         // POST api/values
